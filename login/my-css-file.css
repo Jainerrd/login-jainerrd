@@ -1,0 +1,265 @@
+:root{
+    --eden: #134857;
+    --white: #fff;
+    --lightgray: #f7f7f7;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--lightgray);
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.dark{
+    background-color: #292929;
+    transition: .3s ease all;
+}
+
+/* ------------------- CAJA DEL LOGIN -------------------*/
+
+.login{
+    background-color: white;
+    width: 80%;
+    height: 45em;
+    border-radius: 7px;
+    box-shadow: 0px 0px 100px 30px #acacac;
+    transition: .3s ease all;
+}
+
+body.dark .login{
+    background-color: #000;
+    box-shadow: none;
+}
+
+/* ------------------- HOLA, AMIGO -------------------*/
+
+.login_color{
+    background-color: var(--eden);
+    width: 30%;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_color h1{
+    width: 80%;
+    text-align: center;
+    color: white;
+}
+
+.login_color p{
+    width: 80%;
+    color: var(--lightgray);
+    text-align: center;
+}
+
+/* ------------------- BOTON MODO OSCURO -------------------*/
+
+.login_color button{
+    background-color: #000;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    display: flex;
+    outline: none;
+    transition: .3s ease all;
+    color: #fff;
+    margin: 1em;
+}
+
+.login_color button::after{
+    content: "";
+    display: block;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba( 0, 0, 0, .2);
+}
+
+.login_color button.active{
+    background: #fff;
+    color: #fff;
+}
+
+.login_color button.active::after{
+    right: 0;
+    left: unset;
+}
+
+.login_color button span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    color: #fff;
+    margin: 2px;
+}
+
+/* ------------------- PRESENTACIÓN DEL LOGIN -------------------*/
+
+.login_objects{
+    float: right;
+    width: 70%;
+    height: 100%;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_objects h1{
+    font-size: 2.5em;
+    text-align: center;
+}
+
+body.dark .login_objects h1{
+    color: var(--white);
+}
+
+.login_objects p{
+    margin: 10px;
+}
+
+body.dark .login_objects p{
+    color: var(--white);
+}
+
+/* ------------------- FORMULARIOS DEL LOGIN -------------------*/
+
+.login_objects input{
+    background-color: var(--lightgray);
+    width: 30em;
+    height: 3em;
+    margin: 10px;
+    outline: none;
+    border: 10px solid var(--lightgray);
+    border-radius: 5px;
+    display: block;
+    font-size: 1em;
+}
+
+body.dark .login_objects input{
+    background-color: #292929;
+    border: 10px solid #292929;
+    color: var(--lightgray);
+}
+
+.login_objects input[type="text"] {
+    text-transform: capitalize ;
+}
+
+/* ------------------- BOTON ENTER -------------------*/
+
+.login_objects input[type="button"] {
+    background-color: var(--eden);
+    border: 10px solid var(--eden);
+    color: #f7f7f7;
+    font-weight: bold;
+    transition: box-shadow 0.2s ease, color 0.2s ease;
+}
+
+body.dark .login_objects input[type="button"]{
+    background-color: var(--eden);
+    border: 10px solid var(--eden);
+    color: #f7f7f7;
+}
+
+.login_objects input[type="button"]:hover{
+    box-shadow: 0px 0px 15px #02c2f7;
+}
+
+.login_objects-2{
+    margin: 2.5em;
+}
+
+.login_objects-2 p{
+    text-align: center;
+    text-decoration: underline;
+}
+
+
+
+/* -------------------------------------- RESPONSIVE DESIGN --------------------------------------*/
+
+
+
+@media screen and
+(min-width: 768px) and
+(max-width: 1023px){
+
+    body{
+        font-size: 15px;
+    }
+
+    .login{
+        width: 40em;
+        height: 35em;
+    }
+
+    .login_objects input{
+        width: 100%;
+    }
+
+    .login_color{
+        width: 30%;
+    }
+
+    .login_objects{
+        width: 70%;
+    }
+}
+
+@media screen and
+(min-width: 300px) and
+(max-width: 768px) {
+
+    body{
+        font-size: 0.9em;
+    }
+
+    .login{
+        max-height: 35em;
+        width: 27em;
+    }
+
+    .login_objects{
+        justify-content: center;
+    }
+
+    .login_objects input{
+        width: 100%;
+    }
+
+    .login_color{
+        font-size: 0;
+    }
+
+}
